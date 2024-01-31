@@ -1,11 +1,17 @@
 const express = require("express");
+const notesModel = require("../models/notes");
 
 const router = express.Router();
 
 
 
-router.get("/", (req,res)=>{
-    res.render("home");
+router.get("/", async (req,res)=>{
+    
+    const allNotes = await notesModel.find({});
+    
+    res.render("home", {
+        allNotes: allNotes
+    });
 })
 
 

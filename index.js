@@ -1,4 +1,5 @@
 const path = require("path");
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 
@@ -8,7 +9,7 @@ const staticRouter = require("./routes/static");
 
 
 const PORT = 8000;
-const URI = "mongodb+srv://aditsharma03:imS1mple@mycluster.yucqiwo.mongodb.net/inoteapp?retryWrites=true&w=majority";
+const URI = process.env.DATABASE_URI;
 const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
