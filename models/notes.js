@@ -4,6 +4,7 @@ const {Schema, model} = require("mongoose");
 const notesSchema = new Schema({
     title: {
         type: String,
+        unique: false,
         required: true,
     },
     description: {
