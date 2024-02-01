@@ -8,7 +8,7 @@ const notesRouter = require("./routes/notes");
 const staticRouter = require("./routes/static");
 
 
-const PORT = 8000;
+const PORT = process.env.PORT;
 const URI = process.env.DATABASE_URI;
 const app = express();
 app.set("view engine", "ejs");

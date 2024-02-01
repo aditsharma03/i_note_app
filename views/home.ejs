@@ -3,7 +3,7 @@
 <head>
     <%- include('./partials/head')  %> 
 </head>
-<body style="background: #ff5250;">
+<body >
     
     <%- include('./partials/navbar') %>
 
@@ -22,7 +22,7 @@
                             <p class="card-text">
                                 <%= element.description %>
                             </p>
-                            <a href="#" class="card-link">Card link</a>
+                            <a href="http://localhost:<%= process.env.PORT %>/<%= element._id %>  " class="card-link">Card link</a>
                         </div>
                     </div>
                     <% }) %>
@@ -30,7 +30,6 @@
             </div>
             
 
-            <%= JSON.stringify(allNotes); %> 
 
     <%- include('./partials/scripts') %> 
 </body>

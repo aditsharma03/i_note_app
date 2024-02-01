@@ -1,11 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <%- include('./partials/head')  %> 
 </head>
 <body>
+
+    <%- include('./partials/navbar') %>
+
+
+    <div class="container">
+        <div class="card text-center mt-5">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Note Not Found</h5>
+              <p class="card-text"> Error 404 not found</p>
+              <a href="http://localhost:<%= process.env.PORT %>/ " class="btn btn-primary">Back to home</a>
+            </div>
+          </div>
+        
+        <p></p>
+    </div>
     
+
+    <%- include('./partials/scripts') %> 
 </body>
 </html>
