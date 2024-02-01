@@ -10,7 +10,13 @@ const controlGetAllNotes = async (req,res) => {
 const controlGetSpecificNote = async (req,res) => {
     const id = req.params.id;
 
-    const note = await Note.find({_id: id});
+    let note;
+    try{
+     note = await Note.find({_id: id});
+    }
+    catch(err){
+        return res.status(404).send();       
+    }
     return res.send(note[0]);
 }
 
