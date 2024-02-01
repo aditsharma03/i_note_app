@@ -11,7 +11,7 @@ const controlGetSpecificNote = async (req,res) => {
     const id = req.params.id;
 
     const note = await Note.find({_id: id});
-    return res.send(note);
+    return res.send(note[0]);
 }
 
 

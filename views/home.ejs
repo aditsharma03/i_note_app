@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
+    <%- include('./partials/head')  %> 
 </head>
-<body>
-
-
-    Hello!!!
+<body style="background: #ff5250;">
     
+    <%- include('./partials/navbar') %>
+
+    <div class="container mt-3">
+        <h1>
+            Your Notes: 
+        </h1>
+            
+            <div class="d-flex align-content-center flex-wrap">
+                <% allNotes.forEach((element, index)=> { %>
+                    <div class="card text-bg-dark m-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%= element.title %>
+                            </h5>
+                            <p class="card-text">
+                                <%= element.description %>
+                            </p>
+                            <a href="#" class="card-link">Card link</a>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+            </div>
+            
+
+            <%= JSON.stringify(allNotes); %> 
+
+    <%- include('./partials/scripts') %> 
 </body>
 </html>
