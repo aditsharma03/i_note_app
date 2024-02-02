@@ -51,7 +51,6 @@ const controlUpdateSpecific = async (req,res)=>{
     })
         .then( response=> {
             note = response.data;
-            console.log(response)
         }) 
         .catch( err => console.log('error while updating!!'));
     

@@ -46,7 +46,7 @@ const controlUpdateSpecific = async (req,res)=>{
         { new: true });
     }
     catch(err){
-        console("error updating!!");
+        console.log("error updating!!");
         return res.status(404).send();
     }    
     
