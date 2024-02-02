@@ -8,6 +8,9 @@
     <%- include('./partials/navbar') %>
 
     <div class="container mt-3">
+    
+        <a href="http://localhost:<%= process.env.PORT %>/new" class="btn btn-dark m-3">Create new Note!!</a>
+        <hr>
             
             <div class="d-flex align-content-center flex-wrap">
                 <% allNotes.forEach((element, index)=> { %>
@@ -37,6 +40,7 @@
                     
                     <% }) %>
             </div>
+            <hr>
             </div>
             
 

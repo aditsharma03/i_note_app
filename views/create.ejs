@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head')  %> 
+</head>
+<body style="background: #118644;">
+
+  <%- include('./partials/navbar') %>
+
+
+    <div class="container mt-5">
+      <form action="/" method="post"  >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input type="text" class="form-control" id="title" name="title"  style="background: #f0f07c;">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Body:</label>
+          <textarea class="form-control" id="description" name="description" rows="5" style="background: #f0f07c;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Create</button>
+        <a href="http://localhost:<%=process.env.PORT%>/" class="btn btn-secondary"">Back</a>
+      </form>
+        </div>
+    
+
+    <%- include('./partials/scripts') %> 
+</body>
+</html>
