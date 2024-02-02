@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head')  %> 
+</head>
+<body style="background: #118644;">
+
+    <%- include('./partials/navbar') %>
+
+
+    <div class="container mt-5">
+      <form>
+        <div class="mb-3">
+          <label for="title" class="form-label" >Title:</label>
+          <input type="text" class="form-control" id="title" value="<%=note.title%>">
+          <%   %> 
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Body:</label>
+          <textarea class="form-control"  id="description" rows="5"><%=note.description%></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-secondary ">Cancel</button>
+      </form>
+    </div>
+    
+
+    <%- include('./partials/scripts') %> 
+</body>
+</html>

@@ -29,7 +29,7 @@ const controlGetSpecific = async (req,res)=>{
         return res.render("notFound");
     }
     
-    return res.render("note", {
+    return res.render("edit", {
         note: note
     });
 }
