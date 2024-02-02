@@ -42,7 +42,8 @@ const controlUpdateSpecific = async (req,res)=>{
         {
             title: title,
             description: description
-        });
+        },
+        { new: true });
     }
     catch(err){
         console("error updating!!");

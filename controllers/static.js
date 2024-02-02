@@ -41,16 +41,22 @@ const controlUpdateSpecific = async (req,res)=>{
     
     const {title, description} = req.body;
 
-    console.log("trying to update");
+    console.log( title );
+    console.log( description );
+
+    let note;
     await axios.patch(`http://localhost:8000/api/notes/${id}`, {
         title: title,
         description: description
     })
-        .then( response=> console.log(response)) 
+        .then( response=> {
+            note = response.data;
+            console.log(response)
+        }) 
         .catch( err => console.log('error while updating!!'));
     
 
-    return res.redirect("http://localhost:8000/");
+    return res.render("edit", { note: note } );   
 
 }
 

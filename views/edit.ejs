@@ -9,7 +9,7 @@
 
 
     <div class="container mt-5">
-      <form method="patch" action="http://localhost:8000/<%= note._id %>">
+      <form action="/<%= note._id %>?_method=PATCH" method="post"  >
         <div class="mb-3">
           <label for="title" class="form-label">Title:</label>
           <input type="text" class="form-control" id="title" name="title" value="<%=note.title%>">
@@ -20,7 +20,7 @@
           <textarea class="form-control" id="description" name="description" rows="5"><%=note.description%></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="http://localhost:<%=process.env.PORT%>/" class="btn btn-secondary"">Cancel</a>
+        <a href="http://localhost:<%=process.env.PORT%>/" class="btn btn-secondary"">Back</a>
       </form>
         </div>
     
