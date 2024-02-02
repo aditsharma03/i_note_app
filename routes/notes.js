@@ -1,16 +1,9 @@
-
-
-
 const express = require("express");
-const Note = require("../models/notes");
 
 
-const { controlGetAllNotes, controlGetSpecificNote, controlSendNewNote } = require("../controllers/notes");
+const { controlGetAllNotes, controlGetSpecificNote, controlSendNewNote, controlDeleteSpecific, controlUpdateSpecific } = require("../controllers/notes");
 
 const router = express.Router();
-
-
-
 
 
 
@@ -22,6 +15,12 @@ router.get("/", controlGetAllNotes );
 router.post("/", controlSendNewNote);
 
 
+
+router.patch("/:id", controlUpdateSpecific);
+
+
+
+router.delete("/:id", controlDeleteSpecific);
 
 
 

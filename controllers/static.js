@@ -35,10 +35,31 @@ const controlGetSpecific = async (req,res)=>{
 }
 
 
+const controlUpdateSpecific = async (req,res)=>{
+
+    const id= req.params.id;
+    
+    const {title, description} = req.body;
+
+    console.log("trying to update");
+    await axios.patch(`http://localhost:8000/api/notes/${id}`, {
+        title: title,
+        description: description
+    })
+        .then( response=> console.log(response)) 
+        .catch( err => console.log('error while updating!!'));
+    
+
+    return res.redirect("http://localhost:8000/");
+
+}
+
+
 
 
 module.exports = {
     controlGetAll,
     controlGetSpecific,
+    controlUpdateSpecific,
     
 }

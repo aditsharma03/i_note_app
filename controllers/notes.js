@@ -30,9 +30,49 @@ const controlSendNewNote = async (req,res) => {
     return res.send(note)
 }
 
+const controlUpdateSpecific = async (req,res)=>{
+    
+    const id = req.params.id;
+
+    const {title, description} = req.body;
+    
+    let note
+    try {
+    note = await Note.findOneAndUpdate({ _id: id }, 
+        {
+            title: title,
+            description: description
+        });
+    }
+    catch(err){
+        console("error updating!!");
+        return res.status(404).send();
+    }    
+    
+    return res.status(200).send(note);
+    
+}
+
+const controlDeleteSpecific = async (req,res)=>{
+    
+    const id = req.params.id;
+
+    try {
+        await Note.findOneAndDelete({ _id: id });
+    }
+    catch(err){
+        console("error deleting!!");
+        return res.status(404).send();
+    }    
+    
+    return res.status(200).send();
+    
+}
 
 module.exports = {
     controlGetAllNotes,
     controlGetSpecificNote,
     controlSendNewNote,
+    controlUpdateSpecific,
+    controlDeleteSpecific,
 }
