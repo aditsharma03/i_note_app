@@ -16,7 +16,7 @@ const controlGetAll = async (req,res)=>{
 const controlGetSpecific = async (req,res)=>{
 
     const id = req.params.id;
-    if( id == "favicon.ico" ) return res.send();
+    if( id.length !== 24  ) return res.send();
 
     let note;
     await axios.get(`${process.env.ADDRESS}${process.env.PORT}/api/notes/${id}`)
