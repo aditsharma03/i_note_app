@@ -41,9 +41,6 @@ const controlUpdateSpecific = async (req,res)=>{
     
     const {title, description} = req.body;
 
-    console.log( title );
-    console.log( description );
-
     let note;
     await axios.patch(`${process.env.ADDRESS}/api/notes/${id}`, {
         title: title,
@@ -55,7 +52,7 @@ const controlUpdateSpecific = async (req,res)=>{
         .catch( err => console.log('error while updating!!'));
     
 
-    return res.render("edit", { note: note } );   
+    res.redirect(`/`);
 
 }
 
@@ -74,7 +71,7 @@ const controlPostNewNote = async (req,res)=>{
     .then(response=>console.log(response))
     .catch(err=>console.log(err));
 
-    res.redirect(`${process.env.ADDRESS}/`);
+    res.redirect(`/`);
 }
 
 
