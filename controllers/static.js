@@ -3,7 +3,7 @@ const axios = require('axios');
 const controlGetAll = async (req,res)=>{
     
     let allNotes;
-    await axios.get("http://localhost:8000/api/notes/")
+    await axios.get(`${process.env.ADDRESS}${process.env.PORT}/api/notes/`)
     .then( res => allNotes = res.data )
     .catch( err => console.log(err));
     
@@ -19,7 +19,7 @@ const controlGetSpecific = async (req,res)=>{
     if( id == "favicon.ico" ) return res.send();
 
     let note;
-    await axios.get(`http://localhost:8000/api/notes/${id}`)
+    await axios.get(`${process.env.ADDRESS}${process.env.PORT}/api/notes/${id}`)
         .then( res=> {
             if( res.status == 404 ) return res.render("notFound");
             note=res.data})
@@ -45,7 +45,7 @@ const controlUpdateSpecific = async (req,res)=>{
     console.log( description );
 
     let note;
-    await axios.patch(`http://localhost:8000/api/notes/${id}`, {
+    await axios.patch(`${process.env.ADDRESS}${process.env.PORT}/api/notes/${id}`, {
         title: title,
         description: description
     })
@@ -60,11 +60,29 @@ const controlUpdateSpecific = async (req,res)=>{
 }
 
 
+const controlRenderCreatePage = (req,res)=>{
+    return res.render("create");
+}
+
+const controlPostNewNote = async (req,res)=>{
+    const {title,description} = req.body;
+
+    await axios.post(`${process.env.ADDRESS}${process.env.PORT}/api/notes`, {
+        title: title,
+        description: description
+    })
+    .then(response=>console.log(response))
+    .catch(err=>console.log(err));
+
+    res.redirect(`${process.env.ADDRESS}${process.env.PORT}/`);
+}
+
 
 
 module.exports = {
     controlGetAll,
     controlGetSpecific,
     controlUpdateSpecific,
-    
+    controlRenderCreatePage,
+    controlPostNewNote,
 }
