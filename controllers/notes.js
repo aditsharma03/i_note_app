@@ -2,8 +2,14 @@ const Note = require("../models/notes");
 
 
 const controlGetAllNotes = async (req,res) => {
-        const notes = await Note.find({});
-        return res.send(notes);
+    let notes;
+    try {
+        notes = await Note.find({});
+    }
+    catch (err) {
+        return res.status(404).send();
+    }
+    return res.send(notes);
 }
 
 
